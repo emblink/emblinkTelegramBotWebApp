@@ -1,0 +1,5 @@
+{
+    "nrf-connect.toolchain.path": "${nrf-connect.toolchain:1.7.1}",
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin/Release/net6.0/publish"
+}
