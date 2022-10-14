@@ -9,6 +9,7 @@ using BarracudaTestBot.Checkers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHostedService<PingService>();
+builder.Services.AddHostedService<AirAlertService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -108,6 +109,9 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
 
     if (commandsList[0] != "бот") return;
 
+    if (commandsList[1] == "тривога" || commandsList[1] == "відбій") {
+        return;
+    }
     var stickerSender = new StickerChecker();
     if (commandsList.Length > 1 && stickerSender.IsStickerCommand(commandsList[1]))
     {
