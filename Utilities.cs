@@ -52,7 +52,7 @@ namespace BarracudaTestBot
                 await Task.Delay(5000, stop);
                 using var client = new HttpClient();
 
-                var alert = false;
+                var alert = KyivAlert;
                 try {
                     var content = await client.GetStringAsync("https://t.me/s/air_alert_ua");
                     using (StringReader reader = new StringReader(content))
